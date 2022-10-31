@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->id();
+            $table->id('AdminID');
+            $table->integer('UserID');
+            $table->string('staff_id');
             $table->timestamps();
         });
     }
