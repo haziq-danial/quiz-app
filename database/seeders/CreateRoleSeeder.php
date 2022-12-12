@@ -21,6 +21,7 @@ class CreateRoleSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // manage questions
+        Permission::create(['name' => 'Manage questions']);
         Permission::create(['name' => 'View questions']);
         Permission::create(['name' => 'Create questions']);
         Permission::create(['name' => 'Edit questions']);
@@ -28,12 +29,14 @@ class CreateRoleSeeder extends Seeder
 
         // create role and assign
         $admin = Role::create(['name' => 'admin']);
+        $admin->givePermissionTo('Manage questions');
         $admin->givePermissionTo('View questions');
         $admin->givePermissionTo('Create questions');
         $admin->givePermissionTo('Edit questions');
         $admin->givePermissionTo('Delete questions');
 
         $counselor = Role::create(['name' => 'counselor']);
+        $counselor->givePermissionTo('Manage questions');
         $counselor->givePermissionTo('View questions');
         $counselor->givePermissionTo('Create questions');
         $counselor->givePermissionTo('Edit questions');
