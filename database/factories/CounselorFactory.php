@@ -17,7 +17,8 @@ class CounselorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'UserID' => 0,
+            'staff_id' => $this->faker->regexify('[A-Z]{4}[0-9]{4}'),
         ];
     }
 }
