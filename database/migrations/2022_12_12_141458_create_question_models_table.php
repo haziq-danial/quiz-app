@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('question_models', function (Blueprint $table) {
-            $table->id();
+            $table->id('QuestionID');
+            $table->longText('question');
+            $table->longText('answer');
+            $table->integer('marks');
+            $table->float('weightage');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuestionModel;
 use Illuminate\Http\Request;
 
 class QuestionModelController extends Controller
@@ -13,7 +14,10 @@ class QuestionModelController extends Controller
      */
     public function index()
     {
-        return view('ManageQuestions.index');
+        $questionModel = QuestionModel::get();
+        $count = 0;
+
+        return view('ManageQuestion.index' ,['questions' => $questionModel, 'count' => $count]);
     }
 
     /**
@@ -30,11 +34,21 @@ class QuestionModelController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
      */
     public function store(Request $request)
     {
-        //
+        $questionModel = new QuestionModel;
+
+        $questionModel->question = $request->question;
+        $questionModel->answer = $request->answer;
+        $questionModel->marks = $request->marks;
+        $questionModel->weightage = $request->weightage;
+
+        $questionModel->save();
+
+        return redirect()->route('manage-questions.index');
+
     }
 
     /**
@@ -51,10 +65,10 @@ class QuestionModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $QuestionID
+     *
      */
-    public function edit($id)
+    public function edit($QuestionID)
     {
         //
     }
@@ -63,10 +77,10 @@ class QuestionModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $QuestionID
+     *
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $QuestionID)
     {
         //
     }
