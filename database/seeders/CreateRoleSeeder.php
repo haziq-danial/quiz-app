@@ -27,6 +27,14 @@ class CreateRoleSeeder extends Seeder
         Permission::create(['name' => 'Edit questions']);
         Permission::create(['name' => 'Delete questions']);
 
+        // manage user
+
+        // manage test
+
+        // manage group
+
+        // manage report
+
         // create role and assign
         $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo('Manage questions');
