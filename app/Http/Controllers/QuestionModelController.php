@@ -65,34 +65,47 @@ class QuestionModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $QuestionID
+     * @param int $QuestionID
      *
      */
-    public function edit($QuestionID)
+    public function edit(int $QuestionID)
     {
-        //
+        $questionModel = QuestionModel::where('QuestionID', $QuestionID)->first();
+
+        return view('ManageQuestion.edit', ['question' => $questionModel]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $QuestionID
+     * @param int $QuestionID
      *
      */
-    public function update(Request $request, $QuestionID)
+    public function update(Request $request, int $QuestionID)
     {
-        //
+        $questionModel = QuestionModel::find($QuestionID);
+
+        $questionModel->question = $request->question;
+        $questionModel->answer = $request->answer;
+        $questionModel->marks = $request->marks;
+        $questionModel->weightage = $request->weightage;
+
+        $questionModel->save();
+
+        return redirect()->route('manage-questions.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $QuestionID
+     *
      */
-    public function destroy($id)
+    public function destroy(int $QuestionID)
     {
-        //
+        QuestionModel::destroy($QuestionID);
+
+        return redirect()->route('manage-questions.index');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Student Dashboard')
+@section('title', 'My Dashboard')
 
 @section('stylesheet')
     <!-- Google Font: Source Sans Pro -->

@@ -132,8 +132,8 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu" role="menu">
-                                        <a class="dropdown-item" href="#">Edit</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" href="{{ route('manage-questions.edit', $question->QuestionID) }}">Edit</a>
+                                        <a class="dropdown-item" href="{{ route('manage-questions.destroy', $question->QuestionID) }}">Delete</a>
                                     </div>
                                 </div>
                             </td>

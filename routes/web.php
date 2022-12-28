@@ -29,6 +29,8 @@ Route::group(['prefix' => 'manage-questions', 'as' => 'manage-questions.'], func
 
     Route::get('/edit/{QuestionID}', [QuestionModelController::class, 'edit'])->name('edit');
     Route::post('/update/{QuestionID}', [QuestionModelController::class, 'update'])->name('update');
+
+    Route::get('/delete/{QuestionID}', [QuestionModelController::class, 'destroy'])->name('destroy');
 });
 
 require __DIR__.'/auth.php';
