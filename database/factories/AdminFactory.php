@@ -18,7 +18,7 @@ class AdminFactory extends Factory
     {
         return [
             'UserID' => 0,
-            'staff_id' => $this->faker->regexify('[A-Z]{3}[0-9]{4}'),
+            'staff_id' => 'none',
         ];
     }
 }

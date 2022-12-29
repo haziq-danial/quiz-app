@@ -23,14 +23,16 @@ class CreateUserSeeder extends Seeder
 
         foreach ($admins as $admin) {
             Admin::factory()->create([
-                'UserID' => $admin->UserID
+                'UserID' => $admin->UserID,
+                'staff_id' => $admin->id_no
             ]);
             $admin->assignRole('admin');
         }
 
         foreach ($counselors as $counselor) {
             Counselor::factory()->create([
-                'UserID' => $counselor->UserID
+                'UserID' => $counselor->UserID,
+                'staff_id' => $counselor->id_no
             ]);
             $counselor->assignRole('counselor');
         }

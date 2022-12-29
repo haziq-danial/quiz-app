@@ -17,7 +17,8 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'UserID' => 0,
+            'matric_id' => 'none',
         ];
     }
 }

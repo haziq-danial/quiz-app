@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('role_type');
             $table->string('full_name');
             $table->integer('age');
+            $table->string('id_no');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -46,7 +46,8 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'role_type' => RoleType::ADMIN
+                'role_type' => RoleType::ADMIN,
+                'id_no' => $this->faker->regexify('[A-Z]{3}[0-9]{4}'),
             ];
         });
     }
@@ -54,7 +55,8 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'role_type' => RoleType::COUNSELOR
+                'role_type' => RoleType::COUNSELOR,
+                'id_no' => $this->faker->regexify('[A-Z]{3}[0-9]{4}'),
             ];
         });
     }
@@ -62,7 +64,8 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'role_type' => RoleType::STUDENT
+                'role_type' => RoleType::STUDENT,
+                'id_no' => $this->faker->regexify('[A-Z]{2}[0-9]{4}'),
             ];
         });
     }
