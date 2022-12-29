@@ -64,7 +64,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-4">
                                     <a href="{{ route('manage-questions.index') }}" class="btn btn-secondary">Cancel</a>
-                                    <input type="submit" value="Update Title" class="btn btn-success float-right">
+                                    <input type="submit" value="Update Question" class="btn btn-success float-right">
                                 </div>
                             </div>
                         </div>
