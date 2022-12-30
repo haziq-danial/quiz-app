@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('question_models', function (Blueprint $table) {
             $table->id('QuestionID');
             $table->longText('question');
-            $table->string('type');
+            $table->integer('type');
             $table->timestamps();
         });
     }
