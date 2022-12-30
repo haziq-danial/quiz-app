@@ -41,9 +41,7 @@ class QuestionModelController extends Controller
         $questionModel = new QuestionModel;
 
         $questionModel->question = $request->question;
-        $questionModel->answer = $request->answer;
-        $questionModel->marks = $request->marks;
-        $questionModel->weightage = $request->weightage;
+        $questionModel->type = $request->type;
 
         $questionModel->save();
 
@@ -87,9 +85,7 @@ class QuestionModelController extends Controller
         $questionModel = QuestionModel::find($QuestionID);
 
         $questionModel->question = $request->question;
-        $questionModel->answer = $request->answer;
-        $questionModel->marks = $request->marks;
-        $questionModel->weightage = $request->weightage;
+        $questionModel->type = $request->type;
 
         $questionModel->save();
 

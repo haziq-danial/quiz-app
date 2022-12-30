@@ -40,29 +40,23 @@
                             <div class="form-group">
                                 <label for="inputName">Full Question</label>
                                 <input type="text" name="question" placeholder="{{ $question->question }}"
-                                       class="form-control">
+                                       class="form-control" value="{{ $question->question }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Answer</label>
-                                <input type="text" name="answer" id="" class="form-control" placeholder="{{ $question->answer }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Marks</label>
-                                <input type="number" name="marks" id="" class="form-control" placeholder="{{ $question->marks }}">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="">Weightage</label>
-                                <input type="number" name="weightage" id="" class="form-control" placeholder="{{ $question->weightage }}">
+                                <label>Question Type</label>
+                                <select name="type" id="" class="form-control">
+                                    <option value="">-- Select Type --</option>
+                                    <option value="1">Depression</option>
+                                    <option value="2">Anxiety</option>
+                                    <option value="3">Stress</option>
+                                </select>
                             </div>
 
                         </div>
                         <div class="card-footer">
                             <div class="row justify-content-center">
-                                <div class="col-4">
+                                <div class="col-6">
                                     <a href="{{ route('manage-questions.index') }}" class="btn btn-secondary">Cancel</a>
                                     <input type="submit" value="Update Question" class="btn btn-success float-right">
                                 </div>

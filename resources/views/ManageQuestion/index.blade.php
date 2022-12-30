@@ -27,18 +27,13 @@
                             <input type="text" name="question" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Answer</label>
-                            <input type="text" name="answer" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Marks</label>
-                            <input type="number" name="marks" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Weightage</label>
-                            <input type="number" name="weightage" class="form-control">
+                            <label>Question Type</label>
+                            <select name="type" id="" class="form-control">
+                                <option value="">-- Select Type --</option>
+                                <option value="1">Depression</option>
+                                <option value="2">Anxiety</option>
+                                <option value="3">Stress</option>
+                            </select>
                         </div>
 
                     </form>
@@ -94,13 +89,7 @@
                                 Question
                             </th>
                             <th class="text-center" style="width: 4%">
-                                Answer
-                            </th>
-                            <th class="text-center" style="width: 4%">
-                                Marks
-                            </th>
-                            <th class="text-center" style="width: 4%">
-                                Weightage
+                                Question Type
                             </th>
                             <th style="width: 2%" class="text-center">
                                 Action
@@ -117,13 +106,7 @@
                                 {{ $question->question }}
                             </td>
                             <td class="text-center">
-                                {{ $question->answer }}
-                            </td>
-                            <td class="text-center">
-                                {{ $question->marks }}
-                            </td>
-                            <td class="text-center">
-                                {{ $question->weightage }}
+                                {{ $question->type }}
                             </td>
                             <td class="project-actions text-center">
                                 <div class="btn-group">
