@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('question_models', function (Blueprint $table) {
             $table->id('QuestionID');
             $table->longText('question');
-            $table->longText('answer');
-            $table->integer('marks');
-            $table->float('weightage');
+            $table->string('type');
             $table->timestamps();
         });
     }

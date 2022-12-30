@@ -13,8 +13,6 @@ class QuestionModel extends Model
 
     protected $fillable = [
         'question',
-        'answer',
-        'marks',
-        'weightage'
+        'type'
     ];
 }
