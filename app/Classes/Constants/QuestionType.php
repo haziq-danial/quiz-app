@@ -7,5 +7,5 @@ final class QuestionType
 {
     public const DEPRESSION = 1;
     public const ANXIETY = 2;
-    public const STREESS = 3;
+    public const STRESS = 3;
 }
