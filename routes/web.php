@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionModelController;
 use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\ManageTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,16 @@ Route::group(['prefix' => 'manage-users', 'as' =>  'manage-users.'], function ()
     Route::get('/edit-credential/{UserID}', [ManageUserController::class, 'editCredential'])->name('edit-credential');
 
     Route::get('/delete/{UserID}', [ManageUserController::class, 'destroy'])->name('destroy');
+});
+
+// manage test
+Route::group(['prefix' => 'manage-tests', 'as' => 'manage-tests.'], function (){
+
+    Route::get('/', [ManageTestController::class, 'index'])->name('index');
+
+    Route::get('/start-test', [ManageTestController::class, 'startTest'])->name('start-test');
+
+    Route::post('/submit-answer', [ManageTestController::class, 'submitAnswer'])->name('submit-answer');
 });
 
 require __DIR__.'/auth.php';

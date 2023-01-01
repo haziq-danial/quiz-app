@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Counselor;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -36,5 +37,15 @@ class CreateUserSeeder extends Seeder
             ]);
             $counselor->assignRole('counselor');
         }
+
+        foreach ($students as $student) {
+            Student::factory()->create([
+                'UserID' => $student->UserID,
+                'matric_id' => $student->id_no
+            ]);
+            $student->assignRole('student');
+        }
+
+
     }
 }

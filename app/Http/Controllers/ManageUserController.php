@@ -224,6 +224,33 @@ class ManageUserController extends Controller
      */
     public function destroy($UserID)
     {
+        $user = User::find($UserID);
+        // find the user on all roles
+        $admin = Admin::where('UserID', $user->UserID)->first();
+
+        $student = Student::where('UserID', $user->UserID)->first();
+
+        $counselor = Counselor::where('UserID', $user->UserID)->first();
+
+        // delete all model roles
+        if ($admin) {
+            if (!strcmp($admin->staff_id, $user->id_no)) {
+                Admin::destroy($admin->AdminID);
+            }
+        }
+
+        if ($student) {
+            if (!strcmp($student->matric_id, $user->id_no)) {
+                Student::destroy($student->StudentID);
+            }
+        }
+
+        if ($counselor) {
+            if (!strcmp($counselor->staff_id, $user->id_no)) {
+                Counselor::destroy($counselor->CounselorID);
+            }
+        }
+
         User::destroy($UserID);
 
         return redirect()->route('manage-users.index');
