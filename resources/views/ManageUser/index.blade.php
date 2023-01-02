@@ -112,7 +112,7 @@
                             <th style="width: 1%">#</th>
                             <th style="width: 4%">Full name</th>
                             <th style="width: 2%">Username</th>
-                            <th style="width: 2%">ID No / Matric No</th>
+                            <th style="width: 2%" class="text-center">ID No / Matric No</th>
                             <th class="text-center" style="width: 1%">Age</th>
                             <th class="text-center" style="width: 2%">Role</th>
                             <th class="text-center" style="width: 2%">Action</th>
@@ -124,9 +124,21 @@
                             <td>{{ ++$count }}</td>
                             <td>{{ $user->full_name }}</td>
                             <td>{{ $user->username }}</td>
-                            <td>{{ $user->id_no }}</td>
+                            <td class="text-center">{{ $user->id_no }}</td>
                             <td class="text-center">{{ $user->age }}</td>
-                            <td class="text-center">{{ $user->role_type }}</td>
+                            <td class="text-center">
+                                @switch($user->role_type)
+                                    @case(\App\Classes\Constants\RoleType::STUDENT)
+                                        <span class="badge bg-primary">student</span>
+                                        @break
+                                    @case(\App\Classes\Constants\RoleType::ADMIN)
+                                        <span class="badge bg-success">admin</span>
+                                        @break
+                                    @case(\App\Classes\Constants\RoleType::COUNSELOR)
+                                        <span class="badge bg-navy">counselor</span>
+                                        @break
+                                @endswitch
+                            </td>
                             <td class="text-center project-actions">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-primary">Action</button>

@@ -106,7 +106,17 @@
                                 {{ $question->question }}
                             </td>
                             <td class="text-center">
-                                {{ $question->type }}
+                                @switch($question->type)
+                                    @case(\App\Classes\Constants\QuestionType::DEPRESSION)
+                                        <span class="badge bg-orange">depression</span>
+                                        @break
+                                    @case(\App\Classes\Constants\QuestionType::ANXIETY)
+                                        <span class="badge bg-warning">anxiety</span>
+                                        @break
+                                    @case(\App\Classes\Constants\QuestionType::STRESS)
+                                        <span class="badge bg-danger">stress</span>
+                                        @break
+                                @endswitch
                             </td>
                             <td class="project-actions text-center">
                                 <div class="btn-group">
