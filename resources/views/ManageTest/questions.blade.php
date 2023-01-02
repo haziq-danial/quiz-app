@@ -42,6 +42,7 @@
                         <tr>
                             <th style="width: 0.1%">#</th>
                             <th style="width: 6%">Questions</th>
+                            <th style="width: 2%" class="text-center">Type</th>
                             <th style="width: 2%" >Scale</th>
                         </tr>
                     </thead>
@@ -52,7 +53,19 @@
                                     <tr>
                                         <td>{{ ++$count }}</td>
                                         <td>{{ $question->question }}</td>
-
+                                        <td class="text-center">
+                                            @switch($question->type)
+                                                @case(\App\Classes\Constants\QuestionType::DEPRESSION)
+                                                    <span class="badge bg-orange">depression</span>
+                                                    @break
+                                                @case(\App\Classes\Constants\QuestionType::ANXIETY)
+                                                    <span class="badge bg-warning">anxiety</span>
+                                                    @break
+                                                @case(\App\Classes\Constants\QuestionType::STRESS)
+                                                    <span class="badge bg-danger">stress</span>
+                                                    @break
+                                            @endswitch
+                                        </td>
                                         <td>
                                             @switch($question->type)
                                                 @case(\App\Classes\Constants\QuestionType::DEPRESSION)
