@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>SAINSKU MENTAL HEALTH System</b></a>
+        <a href="#"><b>Quiz Management System</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
